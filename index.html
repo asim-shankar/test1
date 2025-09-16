@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Canteen - Food Ordering System</title>
+    <link rel="stylesheet" href="foodorderingordrink.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🍽️ College Canteen</h1>
+            <nav>
+                <ul>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#cart" id="cart-btn">Cart (<span id="cart-count">0</span>)</a></li>
+                    <li class="user-account">
+                        <div class="profile-circle" id="profile-btn">
+                            <img src="https://via.placeholder.com/40x40/667eea/ffffff?text=U" alt="Profile" id="profile-img">
+                            <span class="username" id="username">Guest</span>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu">
+                            <a href="#" id="login-btn">Login</a>
+                            <a href="#" id="register-btn">Register</a>
+                            <a href="#" id="profile-btn-menu" style="display: none;">My Profile</a>
+                            <a href="#" id="orders-btn" style="display: none;">My Orders</a>
+                            <a href="#" id="logout-btn" style="display: none;">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h2>Fresh & Delicious Food</h2>
+                <p>Order your favorite meals from our college canteen</p>
+            </div>
+        </section>
+
+        <section id="menu" class="container">
+            <h2>Our Menu</h2>
+            <div class="menu-categories">
+                <button class="category-btn active" data-category="all">All Items</button>
+                <button class="category-btn" data-category="main">Main Course</button>
+                <button class="category-btn" data-category="snacks">Snacks</button>
+                <button class="category-btn" data-category="beverages">Beverages</button>
+            </div>
+
+            <div class="menu-grid" id="menu-grid">
+                <!-- Menu items will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <section id="cart-section" class="container" style="display: none;">
+            <h2>Your Cart</h2>
+            <div id="cart-items">
+                <!-- Cart items will be populated by JavaScript -->
+            </div>
+            <div class="cart-total">
+                <h3>Total: ₹<span id="total-amount">0</span></h3>
+                <button id="checkout-btn" class="btn btn-primary">Place Order</button>
+                <button id="clear-cart-btn" class="btn btn-secondary">Clear Cart</button>
+            </div>
+        </section>
+
+        <!-- Login Modal -->
+        <div id="login-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('login-modal')">&times;</span>
+                <h2>Login to Your Account</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-email">Email/Student ID:</label>
+                        <input type="text" id="login-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password:</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Register Modal -->
+        <div id="register-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('register-modal')">&times;</span>
+                <h2>Create New Account</h2>
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="register-name">Full Name:</label>
+                        <input type="text" id="register-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-student-id">Student ID:</label>
+                        <input type="text" id="register-student-id" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Email:</label>
+                        <input type="email" id="register-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-phone">Phone Number:</label>
+                        <input type="tel" id="register-phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Password:</label>
+                        <input type="password" id="register-password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Order Form Modal -->
+        <div id="order-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('order-modal')">&times;</span>
+                <h2>Complete Your Order</h2>
+                <form id="order-form">
+                    <div class="form-group">
+                        <label for="student-name">Student Name:</label>
+                        <input type="text" id="student-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="student-id">Student ID:</label>
+                        <input type="text" id="student-id" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="payment-method">Payment Method:</label>
+                        <select id="payment-method" required>
+                            <option value="">Select Payment Method</option>
+                            <option value="cash">Cash on Pickup</option>
+                            <option value="upi">UPI Payment</option>
+                            <option value="card">Card Payment</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Confirm Order</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 College Canteen. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="foodordering.js"></script>
+</body>
+</html>
